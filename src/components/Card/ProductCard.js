@@ -13,12 +13,11 @@ const ProductCard = ({ productName, productPrice, productImage, onPress }) => {
       <CardMedia
         sx={{ height: 300, objectFit: "cover", width: 400 }}
         image={productImage}
-        title={productName}
       />
       <CardContent>
         <div style={{ height: 50 }}>
           <Typography gutterBottom variant="h5" component="div">
-            Perfume Oil
+            {productName}
           </Typography>
         </div>
         <div
@@ -29,14 +28,16 @@ const ProductCard = ({ productName, productPrice, productImage, onPress }) => {
             alignItems: "center",
           }}
         >
-          <Typography
-            variant="body1"
-            color="text.secondary"
-            fontSize={18}
-            fontWeight={600}
-          >
-            Price: {productPrice} EUR
-          </Typography>
+          <div className="description">
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              fontSize={18}
+              fontWeight={600}
+            >
+              Price: {productPrice} EUR
+            </Typography>
+          </div>
 
           <Button
             size="small"

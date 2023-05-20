@@ -13,6 +13,18 @@ export default function Navbar() {
             style={{ width: "70px" }}
           />
         </NavLink>
+        <NavLink to={"/"} style={{ textDecoration: "none" }}>
+          <h2
+            style={{
+              position: "relative",
+              color: "white",
+              right: "330px",
+              fontSize: "28px",
+            }}
+          >
+            ShoppingCart
+          </h2>
+        </NavLink>
       </section>
       <section className="second">
         <NavLink
