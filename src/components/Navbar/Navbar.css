@@ -28,13 +28,17 @@
 }
 
 .first {
-  margin-left: 5%;
+  margin-left: 7%;
+  margin-bottom: 3%;
 }
 .second {
   margin-right: 5%;
   width: 200px;
   display: flex;
   justify-content: space-between;
+}
+.third {
+  margin-right: 55%;
 }
 
 .activeStyle {

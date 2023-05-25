@@ -13,12 +13,13 @@ export default function Navbar() {
             style={{ width: "70px" }}
           />
         </NavLink>
+      </section>
+      <section className="third">
         <NavLink to={"/"} style={{ textDecoration: "none" }}>
           <h2
             style={{
-              position: "relative",
               color: "white",
-              right: "330px",
+
               fontSize: "28px",
             }}
           >
