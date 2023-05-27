@@ -6,18 +6,15 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import "./ProductCard.css";
 
-const ProductCard = ({ productName, productPrice, productImage, onPress }) => {
+const ProductCard = ({ id, title, imageURL, onClick, price }) => {
   //
   return (
-    <Card sx={{ maxWidth: 400, height: 450 }}>
-      <CardMedia
-        sx={{ height: 300, objectFit: "cover", width: 400 }}
-        image={productImage}
-      />
+    <Card sx={{ maxWidth: 400 }}>
+      <CardMedia sx={{ height: 250 }} image={imageURL} />
       <CardContent>
-        <div style={{ height: 50 }}>
-          <Typography gutterBottom variant="h5" component="div">
-            {productName}
+        <div style={{ height: 70 }}>
+          <Typography gutterBottom variant="h6" component="div">
+            {title}
           </Typography>
         </div>
         <div
@@ -35,7 +32,7 @@ const ProductCard = ({ productName, productPrice, productImage, onPress }) => {
               fontSize={18}
               fontWeight={600}
             >
-              Price: {productPrice} EUR
+              Price: {price} EUR
             </Typography>
           </div>
 
@@ -43,7 +40,7 @@ const ProductCard = ({ productName, productPrice, productImage, onPress }) => {
             size="small"
             variant="outlined"
             color="success"
-            onClick={onPress}
+            onClick={onClick}
           >
             Add to Cart
           </Button>
