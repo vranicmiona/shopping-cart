@@ -34,7 +34,42 @@ function ContextProvider({ children }) {
     }
   };
 
+  const deleteFromCart = (id) => {
+    const quantityInCart = cart.find(
+      (product) => product.id === id
+    ).quantityInCart; // pristupamo propertiju u korpi
+    // vracanje u zalihama
+    setProducts(
+      products.map((product) => {
+        if (product.id === id) {
+          // kad nadjem taj id koji brisem iz korpe
+          return {
+            ...product, // spread operator vraca klonirani niz
+            quantity: product.quantity + quantityInCart, // vracamo u zalihama koliko smo imali u korpi
+          };
+        } else {
+          return product;
+        }
+      })
+    );
+    // brisanje sve iz korpe
+    setCart(() => {
+      const newCart = cart.filter((product) => product.id !== id); // filtriramo trenutno stanje korpe i treba da vratimo new cart
+      return newCart;
+    });
+    toast.success("Successfully deleted from cart!");
+  };
+  const increase = (id) => {
+    const product = product.find((product) => product.id === id);
+    if (product.quantity > 0) {
+      // setPorduct zalihe
+      setProducts(); // setujemo novu vrednost statea, mapiram prethodno i vracamo novi niz, kloniram prethodnos tanje samo sto se taj jedan deo propertija menja
+    } else {
+      toast.error("There are no product in stock!");
+    }
+  };
+
   const values = { products, setProducts, cart, addToCart };
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 }
-export { AppContext, ContextProvider };
+export { AppContext, ContextProvider, deleteFromCart };
