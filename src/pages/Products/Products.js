@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
 import "./Products.css";
 import ProductCard from "../../components/Card/ProductCard";
-import products from "../../common/products.json";
 import { Pagination } from "@mui/material";
+import { AppContext } from "../../context/AppContext";
 
 export default function Products() {
+  const { products, addToCart, cart, deleteFromCart } = useContext(AppContext);
   // ovde se samo renderuju i prikazuju sve kartice
   const [page, setPage] = useState(1); // jedna stranica da se prikazuje
   const handleChange = (event, value) => {
@@ -25,6 +26,12 @@ export default function Products() {
               imageURL={product.imageURL}
               title={product.title}
               price={product.price}
+              addToCart={() => {
+                addToCart(product.id);
+              }}
+              deleteFromCart={() => {
+                deleteFromCart(product.id);
+              }}
             />
           ))
           .slice((page - 1) * productsPerPage, page * productsPerPage)}

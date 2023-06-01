@@ -1,6 +1,7 @@
 import React, { createContext, useState } from "react";
 import productsJSON from "../common/products.json";
 import { toast } from "react-hot-toast";
+
 const AppContext = createContext();
 
 function ContextProvider({ children }) {
@@ -63,13 +64,76 @@ function ContextProvider({ children }) {
     const product = product.find((product) => product.id === id);
     if (product.quantity > 0) {
       // setPorduct zalihe
-      setProducts(); // setujemo novu vrednost statea, mapiram prethodno i vracamo novi niz, kloniram prethodnos tanje samo sto se taj jedan deo propertija menja
+      setProducts(
+        products.map((product) => {
+          if (product.id === id) {
+            return {
+              ...product,
+              quantity: product.quantity - 1,
+            };
+          } else {
+            return product;
+          }
+        })
+      ); // setujemo novu vrednost statea, mapiram prethodno i vracamo novi niz, kloniram prethodno stanje samo sto se taj jedan deo propertija menja
+      setCart(
+        products.map((product) => {
+          if (product.id === id) {
+            return {
+              ...product,
+              quantityInCart: product.quantityInCart + 1,
+            };
+          } else {
+            return product;
+          }
+        })
+      );
     } else {
       toast.error("There are no product in stock!");
     }
   };
 
-  const values = { products, setProducts, cart, addToCart };
+  const decrease = (id) => {
+    const product = cart.find((product) => product.id === id);
+    if (product.quantityInCart === 1) {
+      deleteFromCart(id);
+    } else {
+      setProducts(
+        products.map((product) => {
+          if (product.id === id) {
+            return {
+              ...product,
+              quantity: product.quantity + 1,
+            };
+          } else {
+            return product;
+          }
+        })
+      );
+      setCart(
+        cart.map((product) => {
+          if (product.id === id) {
+            return {
+              ...product,
+              quantityInCart: product.quantityInCart - 1,
+            };
+          } else {
+            return product;
+          }
+        })
+      );
+    }
+  };
+
+  const values = {
+    products,
+    setProducts,
+    cart,
+    addToCart,
+    deleteFromCart,
+    increase,
+    decrease,
+  };
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 }
-export { AppContext, ContextProvider, deleteFromCart };
+export { AppContext, ContextProvider };
