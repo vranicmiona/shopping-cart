@@ -47,6 +47,11 @@
   margin: 30px;
 }
 
-.footer2:hover {
-  color: gray;
+.footer2 a,
+p:hover {
+  color: rgb(38, 24, 231);
+}
+
+.footer3 p:hover {
+  text-decoration: underline;
 }

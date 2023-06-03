@@ -9,15 +9,15 @@ import image9 from "../../assets/shop.img9.jpg";
 import image6 from "../../assets/shop.img6.jpg";
 import image7 from "../../assets/shop.img7.jpg";
 import image8 from "../../assets/shop.img8.jpg";
-
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 const Homepage = () => {
   return (
     <div className="images">
       <img src={image1} alt="1"></img>
       <div className="button">
-        <Link to="/products">
+        <NavLink to="/products">
           <Button
             variant="outlined"
             style={{
@@ -30,7 +30,7 @@ const Homepage = () => {
           >
             <b>Go to products</b>
           </Button>
-        </Link>
+        </NavLink>
       </div>
       <img src={image7} alt="7"></img>
       <img src={image8} alt="8"></img>
