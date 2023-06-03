@@ -5,7 +5,7 @@ import { Pagination } from "@mui/material";
 import { AppContext } from "../../context/AppContext";
 
 export default function Products() {
-  const { products, addToCart, cart, deleteFromCart } = useContext(AppContext);
+  const { products, addToCart, deleteFromCart } = useContext(AppContext);
   // ovde se samo renderuju i prikazuju sve kartice
   const [page, setPage] = useState(1); // jedna stranica da se prikazuje
   const handleChange = (event, value) => {
