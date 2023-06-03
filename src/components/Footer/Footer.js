@@ -11,6 +11,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="main">
         <h2 style={{ fontSize: "15px" }}>&copy;CopyRight 2023</h2>
+
         <div className="footer2">
           <p
             style={{
@@ -59,21 +60,21 @@ const Footer = () => {
               />{" "}
             </a>
           </section>
-          <div className="footer3">
-            <p>Caracters</p>
-            <p>Facebook</p>
-            <p>Outlined</p>
-            <p>Homehold</p>
-            <p>Tools</p>
-            <p>Instagram</p>
-            <p>D23</p>
-            <p>Contact us</p>
-            <p>Oder Tarcking</p>
-            <p>Retrun/Exhange</p>
-            <p>Shopping Info</p>
-            <p>Store Locator</p>
-            <p>Guest Services</p>
-          </div>
+        </div>
+        <div className="footer3">
+          <p>Caracters</p>
+          <p>Facebook</p>
+          <p>Outlined</p>
+          <p>Homehold</p>
+          <p>Tools</p>
+          <p>Instagram</p>
+          <p>D23</p>
+          <p>Contact us</p>
+          <p>Oder Tarcking</p>
+          <p>Retrun/Exhange</p>
+          <p>Shopping Info</p>
+          <p>Store Locator</p>
+          <p>Guest Services</p>
         </div>
       </div>
     </footer>
